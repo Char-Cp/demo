@@ -1,3 +1,5 @@
+package modo;
+
 public class goods {
     protected String productid;
     protected String productname;

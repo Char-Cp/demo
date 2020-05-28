@@ -1,3 +1,5 @@
+package modo;
+
 public class per {
 
     private String name ;
