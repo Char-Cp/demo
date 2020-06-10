@@ -72,7 +72,7 @@ public class FtMain {
                                 System.out.println("时间：" + time + "检测有货");
                                 if (addflag == 3) {
                                     try {
-                                        Runtime.getRuntime().exec("C:/Program Files/Windows Media Player/wmplayer.exe C:/yhl.mp3");
+                                        Runtime.getRuntime().exec("C:/Program Files/Windows Media Player/wmplayer.exe C:/lx.mp3");
                                     } catch (IOException e) {
                                         e.printStackTrace();
                                     }
