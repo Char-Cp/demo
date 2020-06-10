@@ -1,3 +1,4 @@
+import Util.CatHtml;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -17,20 +18,6 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class GetvxImg {
-    public static String catHtml(String url) {
-        CloseableHttpClient client = HttpClients.createDefault();
-        HttpGet get = new HttpGet(url);
-        CloseableHttpResponse response;
-        try {
-            response = client.execute(get);
-            return EntityUtils.toString(response.getEntity());
-        } catch (ClientProtocolException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
 
     //解析网页源码，抽取里面的图片url，保存到List集合
     public static List<String> parsHtml(String html) {
@@ -98,7 +85,7 @@ public class GetvxImg {
     }
 
     public static int forList(String url, int id) {
-        String html = catHtml(url);
+        String html = CatHtml.catHtml(url);
         List<String> list = parsHtml(html);
         for (String sp : list) {
             try {

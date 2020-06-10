@@ -1,4 +1,5 @@
 
+import Util.CatHtml;
 import Util.SendYZM;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
@@ -22,21 +23,6 @@ import java.util.List;
 public class FtMain {
     public static String goodslisturl = "https://gzgsv.xpshop.cn/vshop_List.aspx?type=ajax&Action=GetProductList&CatID=598&BrandID=0&sid=-1&subcat=0&lp=0&hp=0&k=keyword&OrderSort=1&p=&page=1&Size=12&_=1590486979207";
 
-    public static String catHtml(String url) {
-        CloseableHttpClient client = HttpClients.createDefault();
-        HttpGet get = new HttpGet(url);
-        CloseableHttpResponse response;
-        try {
-            response = client.execute(get);
-            return EntityUtils.toString(response.getEntity());
-        } catch (ClientProtocolException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
     public static void main(String[] args) {
         JSONObject obj = new JSONObject();
         String json = "";
@@ -48,7 +34,7 @@ public class FtMain {
         int addflag = 0;
         boolean whileflag = true;
         while (whileflag) {
-            json = catHtml(goodslisturl);
+            json = CatHtml.catHtml(goodslisturl);
             if (json.length() > 100) {
                 Document doc = Jsoup.parse(json);
                 Elements eles = doc.getElementsByTag("title");
