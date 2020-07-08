@@ -41,13 +41,7 @@ public class GetvxImg {
         Date date = new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd__");
         File file = new File("d:\\pic\\" + simpleDateFormat.format(date) + id + ".jpg");
-        if (file.length()/1024<20){
-            in.close();
-            httpclient.close();
-            System.out.println("图片"+file.length()/1024+"kb大小不正确删除");
-            file.delete();
-            return;
-        }
+
         try {
             FileOutputStream fout = new FileOutputStream(file);
             int l = -1;
@@ -59,7 +53,13 @@ public class GetvxImg {
             fout.close();
             InputStream is = null;
             BufferedImage image = null;
-            System.out.println(file.length());
+            if (file.length()/1024<20){
+                in.close();
+                httpclient.close();
+                System.out.println("图片"+file.length()/1024+"kb大小不正确删除");
+                file.delete();
+                return;
+            }
             int width = 0;
             int height = 0;
             try {
