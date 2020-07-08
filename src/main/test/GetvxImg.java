@@ -102,12 +102,19 @@ public class GetvxImg {
         int id = 1;
         List<String> urllist = new ArrayList<>();
         //在下面输入微信链接
-        urllist.add("https://mp.weixin.qq.com/s/61ru7H02C2VS6sU0dm2NPg");
-        urllist.add("https://mp.weixin.qq.com/s/FLxkFfRy-iWRRBVD-aM4Iw");
-        urllist.add("https://mp.weixin.qq.com/s/pq6BgrPIMfsB7wi9g2DgaA");
-        urllist.add("https://mp.weixin.qq.com/s/kzWUEFg9LamL1RG6N964XA");
-        urllist.add("https://mp.weixin.qq.com/s/dI7_oE2c_OMvK7cwJDFLgw");
-        urllist.add("https://mp.weixin.qq.com/s/tiGMFX6EzN-c0t7RXQbnMg");
+        urllist.add("https://mp.weixin.qq.com/s/PtfUyqjOyJnXMob7k9NtnQ");
+        urllist.add("https://mp.weixin.qq.com/s/ZZvowb1uIEPhXUPP98JZEA");
+        urllist.add("https://mp.weixin.qq.com/s/eqMrRvutOxiyUWptqxvq6Q");
+        urllist.add("https://mp.weixin.qq.com/s/7tHn2oy0F368Ss6zrfWxgQ");
+        urllist.add("https://mp.weixin.qq.com/s/qn97fzFCcZdY-NtMVqjIqA");
+        urllist.add("https://mp.weixin.qq.com/s/YSzYgpHdR72ZRlfFUWV0vA");
+        urllist.add("https://mp.weixin.qq.com/s/Yj-gH70DOC6-G5Ut1Dv-Eg");
+        urllist.add("https://mp.weixin.qq.com/s/PfpMq39Es8hhj8YKog2YYg");
+        urllist.add("https://mp.weixin.qq.com/s/nrXYvqoBl2oz7ifj2gdYng");
+        urllist.add("https://mp.weixin.qq.com/s/kbf0FMgTcXanOBpRoBI2mA");
+        urllist.add("https://mp.weixin.qq.com/s/DdMxWFpslIf5xGSv2x8vcw");
+        urllist.add("https://mp.weixin.qq.com/s/U9ggKyAPtOFy7Ng6vfhkVw");
+
         for (int i = 0; i < urllist.size(); i++) {
             id = forList(urllist.get(i), id);
             System.out.println("——————第" + i + "个已完成——————");
