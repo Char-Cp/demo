@@ -32,6 +32,7 @@ public class GetvxImg {
 
     //下载指定地址的图片
     public static void down(String url, int id) throws IOException {
+
         CloseableHttpClient httpclient = HttpClients.createDefault();
         HttpGet httpget = new HttpGet(url);
         HttpResponse response = httpclient.execute(httpget);
@@ -40,6 +41,13 @@ public class GetvxImg {
         Date date = new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd__");
         File file = new File("d:\\pic\\" + simpleDateFormat.format(date) + id + ".jpg");
+        if (file.length()/1024<20){
+            in.close();
+            httpclient.close();
+            System.out.println("图片"+file.length()/1024+"kb大小不正确删除");
+            file.delete();
+            return;
+        }
         try {
             FileOutputStream fout = new FileOutputStream(file);
             int l = -1;
@@ -51,6 +59,7 @@ public class GetvxImg {
             fout.close();
             InputStream is = null;
             BufferedImage image = null;
+            System.out.println(file.length());
             int width = 0;
             int height = 0;
             try {
@@ -63,7 +72,7 @@ public class GetvxImg {
                 if (Math.abs(size) > 50) {
 
                     if (height > 1080) {
-                        System.out.println("该图为壁纸__");
+                        System.out.println("该图为壁纸");
                         File file2 = new File("d:\\pic2\\" + simpleDateFormat.format(date) + id + ".jpg");
                         file.renameTo(file2);
                     } else {
